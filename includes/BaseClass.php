@@ -3,6 +3,7 @@
 
 namespace WP_Palette;
 
+use WP_Palette\Helpers\Template;
 
 class BaseClass
 {
@@ -54,6 +55,17 @@ class BaseClass
 
 	protected function get_admin_pages()
 	{
-
+		return [
+			[
+				'parent_slug' => 'todoit',
+				'page_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
+				'menu_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
+				'capability'  => 'manage_options',
+				'menu_slug'   => 'wp_palette_options',
+				'callback'    => function () {
+					Template::loadTemplate( 'general.php' );
+				},
+			]
+		];
 	}
 }

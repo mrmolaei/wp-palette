@@ -20,8 +20,9 @@
 
 ! defined( 'ABSPATH' ) && die;
 
-define( 'WP_PALLETE_VERSION', '1.0.0' );
+define( 'WP_PALETTE_VERSION', '1.0.0' );
 
+define( 'WP_PALETTE_TEXT_DOMAIN', 'wp-palette' );
 
 
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
