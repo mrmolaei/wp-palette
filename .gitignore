@@ -1,0 +1,15 @@
+# Composer
+/composer.lock
+/vendor/
+wordpress
+
+# Node
+/node_modules/
+
+# PhpUnit
+/phpunit.xml
+# vendor
+/vendor
+
+# node_modules
+/node_modules
