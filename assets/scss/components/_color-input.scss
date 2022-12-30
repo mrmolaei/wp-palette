@@ -5,8 +5,8 @@
 
 .c-color-input--data {
   width: 120px;
-  pointer-events: none;
+  pointer-events: bounding-box;
+  padding: 0 4px;
   border: none;
   background-color: transparent;
-  padding: 0;
 }

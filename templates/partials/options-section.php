@@ -16,8 +16,8 @@ $colors       = isset( $palette_data['colors'] ) && $palette_data['colors'] ? $p
                 <tr>
                     <th>Name</th>
                     <th>Color</th>
-                    <th>RGB</th>
-                    <th>HSL</th>
+                    <th class="has-input">RGB</th>
+                    <th class="has-input">HSL</th>
                 </tr>
                 </thead>
                 <tbody>

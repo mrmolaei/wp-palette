@@ -7,13 +7,27 @@ table {
     padding: 8px;
     border-bottom: 1px solid #b9b9b9;
     text-align: left;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &.has-input {
+      padding: 8px 12px;
+    }
   }
 
   td {
     padding: 8px;
     border-bottom: 1px solid #b9b9b9;
 
-    &:nth-child(2n) {
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  tr {
+    &:nth-child(2n) td {
       background-color: #b9b9b9;
     }
   }
