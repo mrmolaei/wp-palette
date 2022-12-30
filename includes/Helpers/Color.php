@@ -11,23 +11,27 @@ class Color
 		// Convert hex to RGB
 		$rgb = array_map('hexdec', str_split(ltrim($hex, '#'), 2));
 
-		$output = 'rgb(' . implode( ",", $rgb ) . ')';
+		$output = 'rgb(' . implode( ", ", $rgb ) . ')';
 
 		return $output;
 	}
 
 	public static function hexToHsl($hex) {
 		// Convert hex to RGB
-		$rgb = array_map('hexdec', str_split(ltrim($hex, '#'), 2));
+		if (strlen($hex) == 7) {
+			$rgb = array_map('hexdec', str_split(ltrim($hex, '#'), 2));
+		} else {
+			$rgb = array_map('hexdec', str_split(ltrim($hex, '#'), 1));
+		}
 
 		// Convert RGB to HSL
 		$hsl = self::rgbToHsl($rgb[0], $rgb[1], $rgb[2]);
 
 		$hsl[0] = round($hsl[0], 1);
-		$hsl[1] = $hsl[1] * 100 . "%";
-		$hsl[2] = $hsl[2] * 100 . "%";
+		$hsl[1] = round($hsl[1]) * 100 . "%";
+		$hsl[2] = round($hsl[2] * 100) . "%";
 
-		$output = 'hsl(' . implode( ",", $hsl ) . ')';
+		$output = 'hsl(' . implode( ", ", $hsl ) . ')';
 
 		return $output;
 	}

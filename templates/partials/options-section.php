@@ -3,7 +3,7 @@ $palette_data = get_option( 'wp_palette_data' );
 $colors       = isset( $palette_data['colors'] ) && $palette_data['colors'] ? $palette_data['colors'] : [
 	[
 		'name'  => 'Color Name',
-		'color' => '#fff'
+		'color' => '#ffffff'
 	]
 ];
 ?>
@@ -20,7 +20,7 @@ $colors       = isset( $palette_data['colors'] ) && $palette_data['colors'] ? $p
                     <th class="has-input">HSL</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="js-colors-table-body">
 				<?php foreach ( $colors as $key => $color ) { ?>
                     <tr>
                         <td>
@@ -41,13 +41,23 @@ $colors       = isset( $palette_data['colors'] ) && $palette_data['colors'] ? $p
                     </tr>
 				<?php } ?>
                 </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <button class="js-add-color c-btn">
+                            <span class="dashicons dashicons-plus-alt2"></span>
+                            <?php _e('Add Color', WP_PALETTE_TEXT_DOMAIN); ?>
+                        </button>
+                    </td>
+                </tr>
+                </tfoot>
             </table>
         </div>
     </div>
     <div class="c-grid__col">
         <h3><?php _e( 'Gradients', WP_PALETTE_TEXT_DOMAIN ); ?></h3>
-        <div class="c-card">
-            COl2
+        <div class="c-card" style="display: flex; align-items: center; justify-content: center; min-height: 150px;">
+            <h3 style="margin: 8px 0 0;"><?php _e('Coming soon...', WP_PALETTE_TEXT_DOMAIN); ?></h3>
         </div>
     </div>
 </div>
