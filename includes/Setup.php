@@ -11,6 +11,7 @@ class Setup extends BaseClass
 	{
 		return [
 			Services\AdminPages::class,
+			Services\Settings::class,
 		];
 	}
 

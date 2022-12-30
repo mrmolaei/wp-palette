@@ -14,11 +14,11 @@ class Template
 	 *
 	 * @return void
 	 */
-	public static function load_template( string $template_name )
+	public static function loadTemplate( string $template_name )
 	{
-		$template_file_name = self::check_template_name($template_name);
+		$template_file_name = self::checkTemplateName($template_name);
 
-		if (gettype($template_file_name) != "boolean" && self::template_exists($template_file_name)) {
+		if (gettype($template_file_name) != "boolean" && self::templateExists($template_file_name)) {
 			require_once plugin_dir_path( dirname( __FILE__, 2 ) ) . "templates/$template_file_name";
 		}
 	}
@@ -28,7 +28,7 @@ class Template
 	 *
 	 * @return false|string
 	 */
-	protected static function check_template_name(string $template_name) {
+	protected static function checkTemplateName(string $template_name) {
 		$template_file_suffix = ".php";
 
 		//@todo In PHP version 8.0.0 use str_ends_with() instead.
@@ -44,7 +44,7 @@ class Template
 	 *
 	 * @return bool
 	 */
-	protected static function template_exists(string $template_file_name)
+	protected static function templateExists(string $template_file_name)
 	{
 		return ( file_exists( plugin_dir_path( dirname( __FILE__, 2 ) ) . "templates/$template_file_name" ) );
 	}

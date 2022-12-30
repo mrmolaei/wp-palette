@@ -64,7 +64,7 @@ class BaseClass
 			'capability'  => 'manage_options',
 			'menu_slug'   => 'wp_palette_options',
 			'callback'    => function () {
-				Template::load_template( 'general.php' );
+				Template::loadTemplate( 'general.php' );
 			},
 		];
 	}
