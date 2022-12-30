@@ -44,28 +44,28 @@ class BaseClass
 	 * @access   private
 	 * @var      array $pages
 	 */
-	private array $pages;
+	protected array $page;
 
 	public function __construct()
 	{
 		$this->plugin_path = plugin_dir_path( dirname( __FILE__, 1 ) );
 		$this->plugin_url  = plugin_dir_url( dirname( __FILE__, 1 ) );
 		$this->plugin      = plugin_basename( dirname( __FILE__, 2 ) ) . '/wp-palette.php';
+
+		$this->page = $this->get_admin_pages();
 	}
 
 	protected function get_admin_pages()
 	{
 		return [
-			[
-				'parent_slug' => 'todoit',
-				'page_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
-				'menu_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
-				'capability'  => 'manage_options',
-				'menu_slug'   => 'wp_palette_options',
-				'callback'    => function () {
-					Template::loadTemplate( 'general.php' );
-				},
-			]
+			'parent_slug' => 'themes.php', // Show the page under the appearance item.
+			'page_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
+			'menu_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
+			'capability'  => 'manage_options',
+			'menu_slug'   => 'wp_palette_options',
+			'callback'    => function () {
+				Template::load_template( 'general.php' );
+			},
 		];
 	}
 }

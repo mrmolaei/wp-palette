@@ -1,6 +1,7 @@
 {
     "name": "mrmolaei/wp-palette",
     "description": "Create colors and gradient presets for use in the Gutenberg block editor.",
+    "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
             "WP_Palette\\": "includes/"

@@ -4,7 +4,7 @@
 namespace WP_Palette;
 
 
-class WpPalette extends BaseClass
+class Setup extends BaseClass
 {
 
 	public static function get_services()
