@@ -1,0 +1,9 @@
+.wp-palette-plugin { // Plugin's Body Class
+
+  @import "components/grid";
+  @import "components/table";
+  @import "components/color-picker";
+  @import "components/card";
+  @import "components/color-input";
+
+}

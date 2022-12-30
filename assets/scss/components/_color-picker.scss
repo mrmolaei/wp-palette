@@ -1,0 +1,16 @@
+.c-color-picker {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #a5a5a5;
+  padding: 32px;
+  z-index: 999;
+  transition: 0.15s;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}

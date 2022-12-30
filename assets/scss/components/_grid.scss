@@ -1,0 +1,9 @@
+.c-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 32px;
+}
+
+.c-grid__col {
+  width: calc(50% - 64px);
+}

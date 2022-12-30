@@ -1,0 +1,23 @@
+{
+  "name": "wp-palette",
+  "version": "1.0.0",
+  "description": "A WordPress plugin that can create colors and gradient presets for use in the Gutenberg block editor.",
+  "scripts": {
+    "start": "node-sass assets/scss/main.scss assets/css/main.css --output-style compressed & watch \"node-sass assets/scss/main.scss assets/css/main.css --output-style compressed\" ./assets/scss"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "watch": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmolaei/wp-palette.git"
+  },
+  "keywords": [],
+  "author": "mrmolaei",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mrmolaei/wp-palette/issues"
+  },
+  "homepage": "https://github.com/mrmolaei/wp-palette#readme"
+}

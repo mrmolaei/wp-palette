@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h1>Settings Page</h1>
+	<h1><?php _e('WP Palette', WP_PALETTE_TEXT_DOMAIN); ?></h1>
 	<form method="post" action="options.php">
 		<?php
 		settings_fields( 'wp_palette_data' );

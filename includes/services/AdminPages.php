@@ -9,6 +9,7 @@ class AdminPages extends BaseClass
 {
 	public function register() {
 		add_action('admin_menu', [$this, 'add_subpage']);
+		add_filter( 'admin_body_class', [$this, 'bodyClasses']);
 	}
 
 	public function add_subpage()
@@ -20,5 +21,15 @@ class AdminPages extends BaseClass
 			$this->page['capability'],
 			$this->page['menu_slug'],
 			$this->page['callback']);
+	}
+
+	public function bodyClasses( $classes )
+	{
+		if (is_admin() && isset( $_REQUEST['page'] ) && ( substr( $_REQUEST['page'], 0, 10 ) == "wp_palette" ) )
+		{
+			$classes .= ' wp-palette-plugin';
+		}
+
+		return $classes;
 	}
 }
