@@ -23,3 +23,30 @@
     background-color: #d1d1d1;
   }
 }
+
+.c-btn--remove {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -18px;
+  border: none;
+  border-radius: 8px;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  opacity: 0;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #bc0000;
+  }
+
+  .dashicons {
+    margin: 0;
+  }
+}

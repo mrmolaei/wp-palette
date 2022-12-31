@@ -14,17 +14,20 @@ $colors       = isset( $palette_data['colors'] ) && $palette_data['colors'] ? $p
             <table class="c-table s-table">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Color</th>
-                    <th class="has-input">RGB</th>
-                    <th class="has-input">HSL</th>
+                    <th><?php _e('Name', WP_PALETTE_TEXT_DOMAIN); ?></th>
+                    <th><?php _e('Color', WP_PALETTE_TEXT_DOMAIN); ?></th>
+                    <th class="has-input"><?php _e('RGB', WP_PALETTE_TEXT_DOMAIN); ?></th>
+                    <th class="has-input"><?php _e('HSL', WP_PALETTE_TEXT_DOMAIN); ?></th>
                 </tr>
                 </thead>
                 <tbody class="js-colors-table-body">
 				<?php foreach ( $colors as $key => $color ) { ?>
-                    <tr>
+                    <tr data-tr-id="<?php echo $key; ?>">
                         <td>
-                            <input name="wp_palette_data[colors][<?php echo $key; ?>][name]"
+                            <button class="c-btn c-btn--remove js-remove-color">
+                                <span class="dashicons dashicons-no-alt"></span>
+                            </button>
+                            <input class="c-color-name-input" name="wp_palette_data[colors][<?php echo $key; ?>][name]"
                                    value="<?php echo $color['name']; ?>">
                         </td>
                         <td>

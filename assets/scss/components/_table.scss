@@ -27,8 +27,16 @@ table {
   }
 
   tr {
+    position: relative;
+
     &:nth-child(2n) td {
       background-color: #f4f4f4;
+    }
+
+    &:hover {
+      .c-btn--remove {
+        opacity: 1;
+      }
     }
   }
 

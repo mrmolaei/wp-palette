@@ -13,6 +13,7 @@ class Setup extends BaseClass
 			Services\AdminPages::class,
 			Services\Settings::class,
 			Services\Assets::class,
+			Services\ColorsPalette::class,
 		];
 	}
 
