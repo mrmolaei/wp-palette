@@ -38,11 +38,11 @@ class BaseClass
 
 
 	/**
-	 * The admin pages of the plugin.
+	 * The admin page of the plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      array $pages
+	 * @var      array $page
 	 */
 	protected array $page;
 
@@ -58,7 +58,7 @@ class BaseClass
 	protected function get_admin_pages()
 	{
 		return [
-			'parent_slug' => 'themes.php', // Show the page under the appearance item.
+			'parent_slug' => 'themes.php', // Show the page under the appearance menu item.
 			'page_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
 			'menu_title'  => __( 'WP Palette', WP_PALETTE_TEXT_DOMAIN ),
 			'capability'  => 'manage_options',

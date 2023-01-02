@@ -26,27 +26,17 @@ class Settings extends BaseClass
 	private array $sections;
 
 
-	/**
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      array $fields
-	 */
-	private array $fields;
-
 	public function __construct()
 	{
 		parent::__construct();
 		$this->settings = $this->get_settings();
 		$this->sections = $this->get_sections();
-		$this->fields   = $this->get_fields( $this->sections[0] );
 	}
 
 	public function register()
 	{
 		add_action( 'admin_init', array( $this, 'setup_settings' ) );
 		add_action( 'admin_init', array( $this, 'setup_sections' ) );
-		add_action( 'admin_init', array( $this, 'setup_fields' ) );
 	}
 
 	public function setup_settings()
@@ -89,30 +79,4 @@ class Settings extends BaseClass
 			]
 		];
 	}
-
-
-	public function setup_fields()
-	{
-		foreach ( $this->fields as $fields ) {
-			add_settings_field( $fields['id'], $fields['title'], $fields['callback'], $fields['page'], $fields['section'], $fields['args'] );
-		}
-	}
-
-	public function get_fields( array $section )
-	{
-		return [
-			[
-				'id'       => 'wp_palette_data',
-				'title'    => 'Colors',
-				'callback' => function () {
-					Template::loadTemplate( 'inputs/text-input.php' );
-				},
-				'page'     => $this->page['menu_slug'],
-				'section'  => $section['id'],
-				'args'     => []
-			]
-		];
-	}
-
-
 }

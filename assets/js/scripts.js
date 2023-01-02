@@ -44,7 +44,7 @@
                                 <span class="dashicons dashicons-no-alt"></span>
                             </button>
                             <input class="c-color-name-input" name="wp_palette_data[colors][${colorsCount + 1}][name]"
-                                   value="Color name">
+                                   value="${wpPaletteObj['color_name_str']}">
                         </td>
                         <td>
                             <input name="wp_palette_data[colors][${colorsCount + 1}][color]"
