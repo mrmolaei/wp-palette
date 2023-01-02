@@ -33,8 +33,8 @@ if (class_exists( 'WP_Palette\\Setup' )) {
 	WP_Palette\Setup::register_services();
 }
 
-//register_activation_hook( __FILE__, 'Todo_It\\TodoIt::activate' );
-//
+register_activation_hook( __FILE__, 'WP_Palette\\Activate::activate' );
+
 //register_deactivation_hook( __FILE__, array( $todo_it_instance, 'deactivate' ) );
 //
 //register_uninstall_hook( __FILE__, array( WP_PALLETE_CLASS, 'uninstall' ) );
