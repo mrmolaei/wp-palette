@@ -7,21 +7,29 @@ namespace WP_Palette\Services;
 class ColorsPalette
 {
 	public function register() {
-		add_action( 'after_setup_theme', [ $this, 'addColorsToGutenberg' ], 20 );
+		add_filter( 'block_editor_settings_all', array( $this, 'addColorsToEditorSettings' ) );
 	}
 
 	public function getColors() {
 		$wp_palette_data = get_option('wp_palette_data');
-		return $wp_palette_data['colors'];
 
+		if ($wp_palette_data) {
+			return $wp_palette_data['colors'];
+		}
+
+		return false;
 	}
 
-	public function addColorsToGutenberg()
+	public function addColorsToEditorSettings($settings)
 	{
-		$themeColors = get_theme_support( 'editor-color-palette' );
 		$colors = $this->getColors();
 
+		if (!$colors) {
+			return;
+		}
+
 		$colorPalette = [];
+		$themeColors = $settings['__experimentalFeatures']['color']['palette']['theme'];
 
 		foreach ( $colors as $key => $color )
 		{
@@ -32,11 +40,9 @@ class ColorsPalette
 			];
 		}
 
-		// Merge if there are existing colors
-		if ( isset( $themeColors[0] ) ) {
-			$colorPalette = array_merge( $themeColors, $colorPalette );
-		}
 
-		add_theme_support( 'editor-color-palette', $colorPalette );
+		$settings['__experimentalFeatures']['color']['palette']['custom'] = $colorPalette;
+
+		return $settings;
 	}
 }
