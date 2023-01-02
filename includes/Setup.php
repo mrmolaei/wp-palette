@@ -40,7 +40,7 @@ class Setup extends BaseClass
 
 	public static function activate()
 	{
-		//Activate::activate();
+		Activate::activate();
 	}
 
 	public function deactivate()
