@@ -14,6 +14,7 @@ class Setup extends BaseClass
 			Services\Settings::class,
 			Services\Assets::class,
 			Services\ColorsPalette::class,
+			Services\ColorGenerator::class,
 		];
 	}
 

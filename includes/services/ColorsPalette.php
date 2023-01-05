@@ -4,6 +4,8 @@
 namespace WP_Palette\Services;
 
 
+use WP_Palette\Helpers\Sanitize;
+
 class ColorsPalette
 {
 	public function register() {
@@ -33,9 +35,10 @@ class ColorsPalette
 
 		foreach ( $colors as $key => $color )
 		{
+			$name = Sanitize::escapeSpecialChars(str_replace(' ', '', strtolower($color['name'])));
 			$colorPalette[] = [
 				'name'  => $color['name'],
-				'slug'  => "wp-palette-color-{$key}-{$color['name']}",
+				'slug'  => "wp-palette-color-{$key}-{$name}",
 				'color' => $color['color'],
 			];
 		}
