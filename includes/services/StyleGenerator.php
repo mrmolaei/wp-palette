@@ -17,8 +17,8 @@ class StyleGenerator extends ColorsPalette
 	{
 		$colors = $this->getColors();
 
-		if ( ! $colors ) {
-			return;
+		if ( ! $colors || ! count( $colors ) ) {
+			return null;
 		}
 
 		echo "<style id='wp-palette-styles3'>\n";
@@ -26,10 +26,10 @@ class StyleGenerator extends ColorsPalette
 		foreach ( $colors as $key => $color ) {
 			$name = Sanitize::escapeSpecialChars( str_replace( ' ', '', strtolower( $color['name'] ) ) );
 			echo ".has-wp-palette-color-{$key}-{$name}-color { \n" .
-				 "color: var(--wp--preset--color--wp-palette-color-{$key}-{$name});\n } \n";
+			     "color: var(--wp--preset--color--wp-palette-color-{$key}-{$name});\n } \n";
 
 			echo ".has-wp-palette-color-{$key}-{$name}-background-color { \n" .
-				 "background-color: var(--wp--preset--color--wp-palette-color-{$key}-{$name});\n } \n";
+			     "background-color: var(--wp--preset--color--wp-palette-color-{$key}-{$name});\n } \n";
 		}
 
 		echo "</style>\n";

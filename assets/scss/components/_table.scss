@@ -38,6 +38,12 @@ table {
         opacity: 1;
       }
     }
+
+    &:first-child:last-child {
+      .c-btn--remove {
+        display: none;
+      }
+    }
   }
 
   tfoot {

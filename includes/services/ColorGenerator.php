@@ -18,8 +18,8 @@ class ColorGenerator extends ColorsPalette
 	{
 		$colors = $this->getColors();
 
-		if ( ! $colors ) {
-			return;
+		if ( ! $colors || ! count( $colors ) ) {
+			return null;
 		}
 
 		echo "<style id='wp-palette-colors'>\n" .

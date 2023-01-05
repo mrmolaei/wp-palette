@@ -8,34 +8,35 @@ use WP_Palette\Helpers\Sanitize;
 
 class ColorsPalette
 {
-	public function register() {
+	public function register()
+	{
 		add_filter( 'block_editor_settings_all', array( $this, 'addColorsToEditorSettings' ) );
 	}
 
-	public function getColors() {
-		$wp_palette_data = get_option('wp_palette_data');
+	public function getColors()
+	{
+		$wp_palette_data = get_option( 'wp_palette_data' );
 
-		if ($wp_palette_data) {
+		if ( $wp_palette_data ) {
 			return $wp_palette_data['colors'];
 		}
 
 		return false;
 	}
 
-	public function addColorsToEditorSettings($settings)
+	public function addColorsToEditorSettings( $settings )
 	{
 		$colors = $this->getColors();
 
-		if (!$colors) {
-			return;
+		if ( ! $colors || ! count( $colors ) ) {
+			return null;
 		}
 
 		$colorPalette = [];
-		$themeColors = $settings['__experimentalFeatures']['color']['palette']['theme'];
+		$themeColors  = $settings['__experimentalFeatures']['color']['palette']['theme'];
 
-		foreach ( $colors as $key => $color )
-		{
-			$name = Sanitize::escapeSpecialChars(str_replace(' ', '', strtolower($color['name'])));
+		foreach ( $colors as $key => $color ) {
+			$name           = Sanitize::escapeSpecialChars( str_replace( ' ', '', strtolower( $color['name'] ) ) );
 			$colorPalette[] = [
 				'name'  => $color['name'],
 				'slug'  => "wp-palette-color-{$key}-{$name}",
