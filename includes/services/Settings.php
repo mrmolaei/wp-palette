@@ -70,7 +70,7 @@ class Settings extends BaseClass
 		return [
 			[
 				'id'       => 'wp_palette_section',
-				'title'    => 'WP Palette Section',
+				'title'    => '',
 				'callback' => function () {
 					Template::loadTemplate( 'partials/options-section.php' );
 				},
