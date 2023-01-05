@@ -34,12 +34,10 @@ class ColorsPalette
 
 	public function addColorsToEditorSettings( $settings )
 	{
-		$colors = $this->getColors();
-
 		$colorPalette = [];
 		$themeColors  = $settings['__experimentalFeatures']['color']['palette']['theme'];
 
-		foreach ( $colors as $key => $color ) {
+		foreach ( $this->colors as $key => $color ) {
 			$name           = Sanitize::escapeSpecialChars( str_replace( ' ', '', strtolower( $color['name'] ) ) );
 			$colorPalette[] = [
 				'name'  => $color['name'],

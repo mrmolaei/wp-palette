@@ -18,16 +18,10 @@ class ColorGenerator extends ColorsPalette
 
 	public function generateColorsVars()
 	{
-		$colors = $this->colors;
-
-		if ( ! $colors || ! count( $colors ) ) {
-			return null;
-		}
-
 		echo "<style id='wp-palette-colors'>\n" .
 		     ":root { \n";
 
-		foreach ( $colors as $key => $color ) {
+		foreach ( $this->colors as $key => $color ) {
 			$name = Sanitize::escapeSpecialChars( str_replace( ' ', '', strtolower( $color['name'] ) ) );
 			echo "--wp--preset--color--wp-palette-color-{$key}-{$name}: " . $color['color'] . ";\n";
 		}
