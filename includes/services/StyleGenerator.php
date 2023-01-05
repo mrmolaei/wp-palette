@@ -10,18 +10,16 @@ class StyleGenerator extends ColorsPalette
 {
 	public function register()
 	{
-		add_action( 'wp_head', [ $this, 'generateColorsStyles' ] );
+		if ( $this->colors && count( $this->colors ) ) {
+			add_action( 'wp_head', [ $this, 'generateColorsStyles' ] );
+		}
 	}
 
 	public function generateColorsStyles()
 	{
-		$colors = $this->getColors();
+		$colors = $this->colors;
 
-		if ( ! $colors || ! count( $colors ) ) {
-			return null;
-		}
-
-		echo "<style id='wp-palette-styles3'>\n";
+		echo "<style id='wp-palette-styles'>\n";
 
 		foreach ( $colors as $key => $color ) {
 			$name = Sanitize::escapeSpecialChars( str_replace( ' ', '', strtolower( $color['name'] ) ) );

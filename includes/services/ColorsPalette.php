@@ -8,9 +8,17 @@ use WP_Palette\Helpers\Sanitize;
 
 class ColorsPalette
 {
+	protected $colors;
+
+	public function __construct() {
+		$this->colors = $this->getColors();
+	}
+
 	public function register()
 	{
-		add_filter( 'block_editor_settings_all', array( $this, 'addColorsToEditorSettings' ) );
+		if ( $this->colors && count( $this->colors ) ) {
+			add_filter( 'block_editor_settings_all', array( $this, 'addColorsToEditorSettings' ) );
+		}
 	}
 
 	public function getColors()
@@ -27,10 +35,6 @@ class ColorsPalette
 	public function addColorsToEditorSettings( $settings )
 	{
 		$colors = $this->getColors();
-
-		if ( ! $colors || ! count( $colors ) ) {
-			return null;
-		}
 
 		$colorPalette = [];
 		$themeColors  = $settings['__experimentalFeatures']['color']['palette']['theme'];

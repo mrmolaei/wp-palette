@@ -10,13 +10,15 @@ class ColorGenerator extends ColorsPalette
 {
 	public function register()
 	{
-		add_action( 'wp_head', [ $this, 'generateColorsVars' ] );
-		add_action( 'admin_head', [ $this, 'generateColorsVars' ] );
+		if ( $this->colors && count( $this->colors ) ) {
+			add_action( 'wp_head', [ $this, 'generateColorsVars' ] );
+			add_action( 'admin_head', [ $this, 'generateColorsVars' ] );
+		}
 	}
 
 	public function generateColorsVars()
 	{
-		$colors = $this->getColors();
+		$colors = $this->colors;
 
 		if ( ! $colors || ! count( $colors ) ) {
 			return null;
