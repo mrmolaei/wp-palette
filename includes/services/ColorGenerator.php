@@ -6,22 +6,12 @@ namespace WP_Palette\Services;
 
 use WP_Palette\Helpers\Sanitize;
 
-class ColorGenerator
+class ColorGenerator extends ColorsPalette
 {
 	public function register()
 	{
 		add_action( 'wp_head', [ $this, 'generateColorsVars' ] );
-	}
-
-	private function getColors()
-	{
-		$wp_palette_data = get_option( 'wp_palette_data' );
-
-		if ( $wp_palette_data ) {
-			return $wp_palette_data['colors'];
-		}
-
-		return false;
+		add_action( 'admin_head', [ $this, 'generateColorsVars' ] );
 	}
 
 	public function generateColorsVars()
@@ -37,7 +27,7 @@ class ColorGenerator
 
 		foreach ( $colors as $key => $color ) {
 			$name = Sanitize::escapeSpecialChars( str_replace( ' ', '', strtolower( $color['name'] ) ) );
-			echo "--wp-palette-color-{$key}-{$name}: " . $color['color'] . ";\n";
+			echo "--wp--preset--color--wp-palette-color-{$key}-{$name}: " . $color['color'] . ";\n";
 		}
 
 		echo "}" .

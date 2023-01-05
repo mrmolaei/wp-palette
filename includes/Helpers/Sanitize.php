@@ -14,6 +14,8 @@ class Sanitize
 		// Remove any trailing '#' symbols from the color value
 		$color = str_replace( '#', '', $color );
 
+		$color = self::escapeSpecialChars($color);
+
 		// If the string is 6 characters long then use it in pairs.
 		if ( 3 == strlen( $color ) ) {
 			$color = substr( $color, 0, 1 ) . substr( $color, 0, 1 ) . substr( $color, 1, 1 ) . substr( $color, 1, 1 ) . substr( $color, 2, 1 ) . substr( $color, 2, 1 );
@@ -31,7 +33,7 @@ class Sanitize
 	}
 
 	public static function escapeSpecialChars($string) {
-		$string = str_replace(' ', '-', $string); // Replaces spaces with hyphens.
+		$string = str_replace(' ', '', $string); // Replaces spaces with hyphens.
 		return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	}
 }
